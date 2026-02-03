@@ -1,4 +1,4 @@
-# Task Management API ✅
+# Task Management API
 
 RESTful Task Management API built with Node.js, Express, MongoDB, JWT authentication, and Joi validation.
 
