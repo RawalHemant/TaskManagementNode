@@ -1,0 +1,48 @@
+{
+  "info": {
+    "name": "Task Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "url": {"raw":"{{baseUrl}}/auth/register","host":["{{baseUrl}}"],"path":["auth","register"]},
+        "body": {"mode":"raw","raw":"{\n  \"name\": \"Test\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password\"\n}"}
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "url": {"raw":"{{baseUrl}}/auth/login","host":["{{baseUrl}}"],"path":["auth","login"]},
+        "body": {"mode":"raw","raw":"{\n  \"email\": \"test@example.com\",\n  \"password\": \"password\"\n}"}
+      }
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{token}}"}],
+        "url": {"raw":"{{baseUrl}}/tasks","host":["{{baseUrl}}"],"path":["tasks"]},
+        "body": {"mode":"raw","raw":"{\n  \"title\": \"My Task\",\n  \"description\": \"A sample task\"\n}"}
+      }
+    },
+    {
+      "name": "List Tasks",
+      "request": {
+        "method": "GET",
+        "header": [{"key":"Authorization","value":"Bearer {{token}}"}],
+        "url": {"raw":"{{baseUrl}}/tasks","host":["{{baseUrl}}"],"path":["tasks"]}
+      }
+    }
+  ],
+  "variable": [
+    {"key":"baseUrl","value":"http://localhost:4000"},
+    {"key":"token","value":""}
+  ]
+}
